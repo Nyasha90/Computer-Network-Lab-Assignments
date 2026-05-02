@@ -1,0 +1,80 @@
+Ping Command
+
+C:\>ping www.example.com
+
+Pinging 192.168.1.2 with 32 bytes of data:
+
+Reply from 192.168.1.2: bytes=32 time<1ms TTL=128
+Reply from 192.168.1.2: bytes=32 time<1ms TIL=128
+Reply from 192.168.1.2: bytes=32 time=1ms TIL=128
+Reply from 192.168.1.2: bytes=32 time=1ms TIL=128
+
+Ping statistics for 192.168.1.2:
+Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+Minimum = Oms, Maximum = 1ms, Average = 0ms
+
+C:\>ping www.google.com
+
+Pinging 192.168.1.2 with 32 bytes of data:
+
+Reply from 192.168.1.2: bytes=32 time<1ms TTL=128
+Reply from 192.168.1.2: bytes=32 time<1ms TTL=128
+Reply from 192.168.1.2: bytes=32 time<1ms TTL=128
+Reply from 192.168.1.2: bytes=32 time=2ms TTL=128
+
+Ping statistics for 192.168.1.2:
+Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+Minimum = 0ms, Maximum = 2ms, Average = 0ms
+
+NSLOOKUP
+
+
+C:\>nslookup www.example.com
+
+Server: [192.168.1.2]
+Address: 192.168.1.2
+
+Non-authoritative answer:
+Name : www.example.com
+Address: 192.168.1.2
+
+C:\>nslookup www.google.com
+
+Server: [192.168.1.2]
+Address: 192.168.1.2
+
+Non-authoritative answer:
+Name: www.google.com
+Address: 192.168.1.2
+
+
+TraceRoute
+
+
+C:\>tracert www.example.com
+
+Tracing route to 192.168.1.2 over a maximum of 30 hops:
+
+192.168.1.2
+
+192.168.1.2
+
+www.example.com
+192.168.1.2
+
+192.168.1.2
+
+www.google.com
+192.168.1.2
+
+0 ms
+
+Trace complete.
+
+1
+
+1 ms
+
+1 ms
