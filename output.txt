@@ -1,0 +1,108 @@
+Routing Information Protocol
+
+Route Table
+
+=== COPPER STRAIGHT-THROUGH ===
+PC0  -> S1  (fa0/1)
+PC1  -> S1  (fa0/2)
+S1   -> R0  (fa0/24 -> fa2/0)
+PC2  -> S2  (fa0/1)
+PC3  -> S2  (fa0/2)
+S2   -> R1  (fa0/24 -> fa2/0)
+PC4  -> S3  (fa0/1)
+PC5  -> S3  (fa0/2)
+S3   -> R2  (fa0/24 -> fa2/0)
+
+=== SERIAL DTE ===
+R0   <-> R1  (se0/0 <-> se1/0)
+R1   <-> R2  (se0/0 <-> se1/0)
+
+
+Ping Result
+
+C:\>ping 192.168.2.13
+
+Pinging 192.168.2.13 with 32 bytes of data:
+
+Reply from 192.168.2.13: bytes=32 time=1ms TIL=126
+Reply from 192.168.2.13: bytes=32 time=2ms TIL=126
+Reply from 192.168.2.13: bytes=32 time=2ms TTL=126
+Reply from 192.168.2.13: bytes=32 time=11ms TTL=126
+
+Ping statistics for 192.168.2.13:
+Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+Minimum = 1ms, Maximum = 11ms, Average = 4ms
+
+C:\>ping 192.168.3.14
+
+Pinging 192.168.3.14 with 32 bytes of data:
+
+Request timed out.
+Reply from 192.168.3.14: bytes=32 time=11ms TTL=125
+Reply from 192.168.3.14: bytes=32 time=10ms TTL=125
+Reply from 192.168.3.14: bytes=32 time=12ms TTL=125
+
+Ping statistics for 192.168.3.14:
+Packets: Sent = 4, Received = 3, Lost = 1 (25% loss),
+Approximate round trip times in milli-seconds:
+Minimum = 10ms, Maximum = 12ms, Average = 11ms
+
+
+
+
+Open Shortest Path First
+
+Route Table
+
+================= COPPER STRAIGHT-THROUGH =================
+From   To    Port/Interface
+-----------------------------------------------
+PC0    S1    fa0/1
+PC1    S1    fa0/2
+S1     R0    fa0/24 -> fa2/0
+PC2    S2    fa0/1
+PC3    S2    fa0/2
+S2     R1    fa0/24 -> fa2/0
+PC4    S3    fa0/1
+PC5    S3    fa0/2
+S3     R2    fa0/24 -> fa2/0
+
+===================== SERIAL DTE =====================
+From   To    Port/Interface
+-----------------------------------------------
+R0     R1    se0/0 <-> se1/0
+R1     R2    se0/0 <-> se1/0
+R0     R2    se1/0 <-> se0/0
+
+
+Ping Result
+
+Cisco Packet Tracer PC Command Line 1.0
+C:\>ping 192.168.2.12
+
+Pinging 192.168.2.12 with 32 bytes of data:
+
+Request timed out.
+Reply from 192.168.2.12: bytes=32 time=1ms TTL=126
+Reply from 192.168.2.12: bytes=32 time=11ms TTL=126
+Reply from 192.168.2.12: bytes=32 time=3ms TTL=126
+
+Ping statistics for 192.168.2.12:
+    Packets: Sent = 4, Received = 3, Lost = 1 (25% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 11ms, Average = 5ms
+
+C:\>ping 192.168.3.14
+
+Pinging 192.168.3.14 with 32 bytes of data:
+
+Request timed out.
+Reply from 192.168.3.14: bytes=32 time=11ms TTL=125
+Reply from 192.168.3.14: bytes=32 time=32ms TTL=125
+Reply from 192.168.3.14: bytes=32 time=10ms TTL=125
+
+Ping statistics for 192.168.3.14:
+    Packets: Sent = 4, Received = 3, Lost = 1 (25% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 10ms, Maximum = 32ms, Average = 17ms
