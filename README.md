@@ -1,95 +1,68 @@
-# Computer-Network-Lab-Assignments
-Here will be all the files of lab experiments of computer networks
+# Assignment-3-Computer-Networks
 
-Assignment 1: Basic Network Topologies Using Switches and Hubs
-Experiment Objectives:
-In this experiment, students will create three small LAN designs in Cisco Packet Tracer to 
-understand how network topology influences connectivity, fault tolerance, and performance. 
-Students will configure end devices with IPv4 addressing and verify communication using ICMP.
-Learning Outcomes
-• Create small networks in Packet Tracer using different topologies
-• Assign IP addresses correctly and test connectivity
-• Identify failure points in different physical layouts
-• Compare topology behavior using simulation results
-Concepts Used
-• Star / Hub-based / Loop (ring-like) layouts
-• IPv4 addressing and subnetting
-• ICMP ping
-• Packet Tracer Simulation Mode
-Detailed Instructions
-Task 1: Star Topology (Switch)
-• Place 1 switch + 4 PCs
-• Connect all PCs to the switch
-• Assign IPs (example): 192.168.10.1–4 /24
-• Ping PC1 → PC2, PC3, PC4
-Task 2: Bus-like Topology (Hub)
-• Replace switch with hub
-• Keep same IP scheme
-• Send pings simultaneously and observe packet flow
-Task 3: Ring-like Topology (Loop)
-• Place 3 switches and connect them in a loop
-• Attach 1–2 PCs to each switch
-• Ping across switches and observe path
-Task 4: Failure Test
-• Disconnect one link in ring-like design
-• Test if communication still works and note observations
-Expected Output
-• Successful ping results in each topology
-• Screenshot of each topology
-• Observation notes on failure behavior and performance
-Practical Applications
-• LAN design for offices and labs
-• Selecting topology based on cost and fault tolerance
-• Understanding basic physical network planning
+Submitted By:- Udit Anand
 
+Roll Number:- 2301730091
 
+Program:- BTechCSE(AI/ML) section:- B
 
+Course:- Computer Networks Lab
 
+# Routing Tables
 
+## 1. Routing Information Protocol
 
-Assignment 2: Packet Flow Visualization Using Simulation Mode
-Experiment Objectives
-Students will use Packet Tracer Simulation Mode to observe how packets move between devices, 
-how switches learn MAC addresses, and how ICMP echo request/reply travels through a small 
-network.
-Learning Outcomes
-• Use Simulation Mode effectively
-• Observe ARP + ICMP behavior
-• Understand switch MAC learning behavior
-• Interpret packet event list timeline
-Concepts Used
-• Simulation Mode
-• ICMP ping
-• ARP resolution
-• Switch MAC address table learning
-Detailed Instructions
-Task 1: Build a Simple LAN
-• 1 switch + 3 PCs
-• IP example: 192.168.20.1–3 /24
-Task 2: First Ping Observation
-• Enable Simulation Mode
-• Ping PC1 → PC2
-• Observe ARP request and ARP reply before ICMP
-Task 3: Second Ping Observation
-• Ping PC1 → PC2 again
-• Observe fewer packets (ARP cached)
-Task 4: MAC Table Check
-• View switch MAC table (if available) / observe switch learning through events
-Expected Output
-• Event list showing ARP then ICMP
-• Screenshots of packet journey steps
-• Short notes: first ping vs second ping differences
-Practical Applications
-• Troubleshooting LAN issues
-• Understanding why “first ping is slow”
-• Switch learning and broadcast behaviour
+### Copper Straight-Through Connections
 
+| From | To  | Port/Interface        |
+|------|-----|-----------------------|
+| PC0  | S1  | fa0/1                 |
+| PC1  | S1  | fa0/2                 |
+| S1   | R0  | fa0/24 → fa2/0        |
+| PC2  | S2  | fa0/1                 |
+| PC3  | S2  | fa0/2                 |
+| S2   | R1  | fa0/24 → fa2/0        |
+| PC4  | S3  | fa0/1                 |
+| PC5  | S3  | fa0/2                 |
+| S3   | R2  | fa0/24 → fa2/0        |
 
+### Serial DTE Connections
 
+| From | To  | Port/Interface        |
+|------|-----|-----------------------|
+| R0   | R1  | se0/0 ↔ se1/0         |
+| R1   | R2  | se0/0 ↔ se1/0         |
 
+## Network Design
 
+The network topology was designed using Cisco Packet Tracer consisting of three routers (R0, R1, R2), three switches (S1, S2, S3), and multiple end devices (PCs).
 
+Each router is connected to a switch, and each switch connects to multiple PCs, forming three different local area networks (LANs). The routers are interconnected using serial DTE links to enable communication between different networks.
 
- 
+IP addresses were assigned to all devices, and routing protocols (RIP and OSPF) were configured to enable communication across networks.
 
+The design ensures:
+- Proper segmentation of networks
+- Efficient communication between LANs
+- Scalability for adding more devices
+
+## Comparison of RIP and OSPF (Based on Simulation)
+
+From the simulations performed using Cisco Packet Tracer, the following conclusions were observed:
+
+### 1. Convergence Time
+RIP showed slower convergence as routing updates were exchanged periodically. OSPF converged faster due to immediate exchange of link-state information.
+**Conclusion:** OSPF converges faster than RIP.
+
+### 2. Routing Metric
+RIP used hop count as the metric, which sometimes resulted in non-optimal path selection. OSPF used cost based on bandwidth, leading to better routing decisions.
+**Conclusion:** OSPF provides more optimal path selection.
+
+### 3. Efficiency
+RIP periodically sent full routing tables, increasing network traffic. OSPF sent updates only when changes occurred, making it more efficient.
+**Conclusion:** OSPF is more efficient than RIP.
+
+### 4. Scalability
+RIP is suitable for small networks due to its limitations. OSPF handled larger and more complex networks effectively.
+**Conclusion:** OSPF is more scalable than RIP.
 
